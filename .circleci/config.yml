@@ -47,10 +47,3 @@ workflows:
   mining:
     jobs:
       - build
-    triggers:
-      - schedule:
-          cron: "0 0,6,12,18 * * *"  # Her 6 saatte bir
-          filters:
-            branches:
-              only:
-                - master
